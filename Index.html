@@ -1,0 +1,56 @@
+<!-- index.html --><!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SnitchMart - Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="SnitchMart Logo" class="logo">
+    <h1>Welcome to SnitchMart</h1>
+    <input type="text" id="search" placeholder="Search products...">
+  </header>  <main>
+    <div id="products"></div>
+  </main>  <footer>
+    <p>&copy; 2025 SnitchMart</p>
+  </footer>  <!-- Firebase SDKs -->  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-storage-compat.js"></script>  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyD-QxJDh8QU2aI8c2kpfTZBNemyvmjq1LE",
+      authDomain: "snitchmart-a8073.firebaseapp.com",
+      projectId: "snitchmart-a8073",
+      storageBucket: "snitchmart-a8073.appspot.com",
+      messagingSenderId: "381112072944",
+      appId: "1:381112072944:web:36f7e3269a847a942da035",
+      measurementId: "G-Y4LS8V8SLL"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+  </script>  <script>
+    const searchInput = document.getElementById("search");
+    const productsDiv = document.getElementById("products");
+
+    function renderProducts(query = "") {
+      db.collection("products").onSnapshot(snapshot => {
+        let data = snapshot.docs
+          .map(doc => doc.data())
+          .filter(p => p.name.toLowerCase().includes(query.toLowerCase()));
+
+        productsDiv.innerHTML = data.map(p => `
+          <div class="card">
+            <img src="${p.image}" alt="${p.name}">
+            <h3>${p.name}</h3>
+            <p>₹${p.price}</p>
+            <a href="https://wa.me/918000000000?text=Hi%2C%20I%20want%20to%20buy%20${encodeURIComponent(p.name)}" target="_blank">
+              <button>Order on WhatsApp</button>
+            </a>
+          </div>
+        `).join('');
+      });
+    }
+
+    searchInput.addEventListener("input", () => renderProducts(searchInput.value));
+    renderProducts();
+  </script></body>
+</html>
