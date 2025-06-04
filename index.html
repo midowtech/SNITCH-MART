@@ -1,172 +1,132 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
   <meta charset="UTF-8">
+  <title>SnitchMart - Premium Collection</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="SnitchMart - Your premium online shopping destination">
-  <meta name="keywords" content="SnitchMart, Online Shopping, Premium Store, E-commerce">
-  <title>SnitchMart - Premium Online Store</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    * {
+    body {
       margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }body {
-  background-color: #f7f7f7;
-  color: #333;
-}
-
-header {
-  background-color: #111;
-  padding: 15px 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-header h1 {
-  color: #fff;
-}
-
-nav a {
-  color: #fff;
-  margin-left: 20px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.hero {
-  background: linear-gradient(to right, #111, #333);
-  color: white;
-  text-align: center;
-  padding: 80px 20px;
-}
-
-.hero h2 {
-  font-size: 2.5em;
-  margin-bottom: 20px;
-}
-
-.hero button {
-  padding: 10px 20px;
-  font-size: 1.1em;
-  background-color: #ff6a00;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.products {
-  padding: 40px 20px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-}
-
-.product {
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
-.product img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-.product h3 {
-  margin: 15px 0 10px;
-}
-
-.product p.price {
-  color: #ff6a00;
-  font-weight: bold;
-}
-
-.product button {
-  margin-top: 10px;
-  padding: 10px 15px;
-  border: none;
-  background-color: #111;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-footer {
-  background-color: #111;
-  color: white;
-  text-align: center;
-  padding: 20px;
-  margin-top: 40px;
-}
-
-footer .social i {
-  margin: 0 10px;
-  color: #ff6a00;
-  cursor: pointer;
-}
-
-.whatsapp {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #25D366;
-  padding: 12px 20px;
-  color: white;
-  font-weight: bold;
-  border-radius: 30px;
-  text-decoration: none;
-}
-
+      font-family: 'Poppins', sans-serif;
+      background: #f4f4f4;
+    }
+    header {
+      background: #000;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      color: red;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      background: #111;
+      padding: 10px 0;
+    }
+    nav button {
+      background: transparent;
+      color: white;
+      border: 1px solid white;
+      padding: 5px 15px;
+      cursor: pointer;
+    }
+    nav button:hover {
+      background: red;
+      border-color: red;
+    }
+    #products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      padding: 10px;
+    }
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .card h3 {
+      margin: 10px 0 5px;
+    }
+    .card p {
+      color: #333;
+      font-weight: bold;
+    }
+    .card button {
+      margin-top: 10px;
+      background: red;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .card button:hover {
+      background: darkred;
+    }
   </style>
-</head><body>
+</head>
+<body>
+
   <header>
     <h1>SnitchMart</h1>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#products">Products</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>  <section class="hero">
-    <h2>Welcome to SnitchMart</h2>
-    <p>Your premium online shopping experience</p>
-    <button onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'});">Shop Now</button>
-  </section>  <section class="products" id="products">
-    <div class="product">
-      <img src="https://via.placeholder.com/300x180.png?text=Product+1" alt="Product 1">
-      <h3>Stylish Shoes</h3>
-      <p class="price">₹1999</p>
-      <button>Add to Cart</button>
-    </div>
-    <div class="product">
-      <img src="https://via.placeholder.com/300x180.png?text=Product+2" alt="Product 2">
-      <h3>Leather Wallet</h3>
-      <p class="price">₹899</p>
-      <button>Add to Cart</button>
-    </div>
-    <div class="product">
-      <img src="https://via.placeholder.com/300x180.png?text=Product+3" alt="Product 3">
-      <h3>Smart Watch</h3>
-      <p class="price">₹3299</p>
-      <button>Add to Cart</button>
-    </div>
-  </section>  <footer id="contact">
-    <p>Contact us at: snitchmart@midowtech.com</p>
-    <div class="social">
-      <i class="fab fa-instagram"></i>
-      <i class="fab fa-facebook"></i>
-      <i class="fab fa-twitter"></i>
-    </div>
-    <p>&copy; 2025 SnitchMart. All rights reserved.</p>
-  </footer><a class="whatsapp" href="https://wa.me/917000000000" target="_blank">Chat with Us</a>
+    <p>Premium Shoes, Watches & Clothing</p>
+  </header>
 
-</body></html>
+  <nav>
+    <button onclick="filter('all')">All</button>
+    <button onclick="filter('shoes')">Shoes</button>
+    <button onclick="filter('watch')">Watches</button>
+    <button onclick="filter('clothing')">Clothing</button>
+  </nav>
+
+  <div id="products"></div>
+
+  <script>
+    let data = JSON.parse(localStorage.getItem("products")) || [];
+
+    function renderProducts(items) {
+      let box = document.getElementById("products");
+      box.innerHTML = items.map(p => `
+        <div class="card">
+          <img src="${p.image}" alt="${p.name}">
+          <h3>${p.name}</h3>
+          <p>₹${p.price}</p>
+          <button onclick="orderWhatsApp('${p.name}', '${p.price}')">Order on WhatsApp</button>
+        </div>
+      `).join('');
+    }
+
+    function filter(category) {
+      if (category === 'all') {
+        renderProducts(data);
+      } else {
+        let filtered = data.filter(p => p.category === category);
+        renderProducts(filtered);
+      }
+    }
+
+    function orderWhatsApp(name, price) {
+      let msg = `Hi, I want to buy *${name}* for ₹${price} from SnitchMart.`;
+      window.open(`https://wa.me/91YOURNUMBERHERE?text=${encodeURIComponent(msg)}`);
+    }
+
+    // Initial Load
+    renderProducts(data);
+  </script>
+
+</body>
+</html>
